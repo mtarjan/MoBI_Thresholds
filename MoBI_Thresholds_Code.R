@@ -6,9 +6,9 @@
 thresholds<-c(0.99, 0.95, 0.9, 0.75)
 
 ##install packages if you don't have them yet (only do this once per machine)
-#install.packages("raster")
-#install.packages("rgdal")
-#install.packages("stringr")
+install.packages("raster")
+install.packages("rgdal")
+install.packages("stringr")
 
 ##load required pacakges
 library(raster)
@@ -62,7 +62,7 @@ for (j in 1:length(states$STUSPS)) { #for each state
   plot(r3.percentile.raster)
   
   ##write out the raster
-  writeRaster(r3.percentile.raster, str_c("Output/MoBI.percentiles.",state.temp,".tif"), format="GTiff")
+  writeRaster(r3.percentile.raster, str_c("Output/MoBI.percentiles.",state.temp,".tif"), format="GTiff", overwrite=T)
 }
 
 ##test reading raster back in
